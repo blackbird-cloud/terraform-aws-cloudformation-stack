@@ -21,6 +21,12 @@ variable "template_url" {
   default     = null
 }
 
+variable "template_body" {
+  type        = string
+  description = "(Optional) Structure containing the template body (max size: 51,200 bytes)."
+  default     = null
+}
+
 variable "parameters" {
   description = "Key-value map of input parameters for the Stack template. All template parameters, including those with a Default, must be configured or ignored with lifecycle configuration block ignore_changes argument. All NoEcho template parameters must be ignored with the lifecycle configuration block ignore_changes argument."
   default     = {}

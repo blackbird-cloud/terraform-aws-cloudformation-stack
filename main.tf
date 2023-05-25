@@ -2,7 +2,8 @@ resource "aws_cloudformation_stack" "default" {
   name = var.name
   tags = var.tags
 
-  template_url = var.template_url
+  template_url  = var.template_url
+  template_body = var.template_body
 
   policy_body = var.policy_body
   policy_url  = var.policy_url
