@@ -1,21 +1,42 @@
+# Terraform Aws Cloudformation Stack Module
+Terraform module to create an AWS CloudFormation stack
+
 [![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://blackbird.cloud)
+
+## Example
+```hcl
+module "account_info" {
+  source  = "blackbird-cloud/account-info/aws"
+  version = "~> 2"
+}
+
+module "stack" {
+  source  = "blackbird-cloud/cloudformation-stack/aws"
+  version = "~> 1"
+
+  name         = "AWSCloudFormationStackSetExecutionRole"
+  template_url = "https://s3.amazonaws.com/cloudformation-stackset-sample-templates-us-east-1/AWSCloudFormationStackSetExecutionRole.yml"
+
+  parameters = {
+    AdministratorAccountId = module.account_info.account_id
+  }
+
+  capabilities = ["CAPABILITY_NAMED_IAM"]
+}
+```
 
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
-
-## Modules
-
-No modules.
 
 ## Resources
 
@@ -55,4 +76,4 @@ Checkout our other :point\_right: [terraform modules](https://registry.terraform
 
 ## Copyright
 
-Copyright © 2017-2023 [Blackbird Cloud](https://blackbird.cloud)
+Copyright © 2017-2024 [Blackbird Cloud](https://blackbird.cloud)
