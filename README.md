@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 # Terraform Aws Cloudformation Stack Module
 Terraform module to create an AWS CloudFormation stack
 
@@ -36,7 +37,7 @@ module "stack" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4 |
 
 ## Resources
 
@@ -77,3 +78,4 @@ Checkout our other :point\_right: [terraform modules](https://registry.terraform
 ## Copyright
 
 Copyright © 2017-2024 [Blackbird Cloud](https://blackbird.cloud)
+<!-- END_TF_DOCS -->
